@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method = "post" action="/servletTest/ResponseTest01.do">
+	<div>
+		<label>ID : </label><input type="text" name = "username">
+		
+		<label>PASS : </label> <input type="text" name = "username">
+		
+	</div>
+</form>
+</body>
+</html>

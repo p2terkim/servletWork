@@ -1,0 +1,46 @@
+package kr.or.ddit.basic.session;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class SessionReadServlet
+ */
+@WebServlet("/SessionReadServlet")
+public class SessionReadServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		HttpSession session = request.getSession();
+		
+		out.println("<html><head><meta charset='utf-8'><title>Session 연습</title></head>");
+		out.println("<body>");
+		out.println("<h2>저장된 Session 데이터 확인하기</h2><br><br>");
+		out.println("<h3>저장된 Session 데이터 1개 확인하기</h3>");
+		
+		String sessionValue = (String) session.getAttribute("testSession");
+		if(sessionValue==null) {
+			out.println("<h4>testSession의 세션값은 없습니다.</h4>");
+		}
+		
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

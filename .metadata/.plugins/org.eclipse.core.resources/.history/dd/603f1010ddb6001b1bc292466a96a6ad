@@ -1,0 +1,37 @@
+package kr.or.ddit.basic.cookie;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CookieAddServlet
+ */
+@WebServlet("/CookieAddServlet.do")
+public class CookieAddServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html); charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		//Cookie 정보 저장하는 방법
+		//1. Cookie 객체를 생성한다. ==> '쿠키변수'와 '쿠키값'을 문자열로 지정한다.,
+		//	형식) Cookie cookie 변수 = new Cookie('쿠키변수', '쿠키값');
+		// 쿠키값이 한글일 경우에는 URLEncoder.encode()메서드로 인코딩한 후 저장한다.
+		
+		Cookie nameCookie = new Cookie("name", URLEncoder.encode("홍길동", "ytf-8"));
+	
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

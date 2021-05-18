@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Request연습용 Form</title>
+</head>
+<body>
+<h2>Request 객체 연습용 Form</h2>
+<hr>
+<form name="textForm" method="post" action="/servletTest/requestTest01.do">
+<table border="1">
+<tr>
+	<td>이름</td>
+	
+
+</table>
+
+</form>
+</body>
+</html>

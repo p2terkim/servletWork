@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+    // 로그인 유지작업 
+    Cookie[] cookies = request.getCookies();
+    if(cookies != null ){
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals("id")){
+                /* 실행흐름이 서버에 있을 경우 서버코드로써 강제이동
+                       서버에서 클라이언트()에게 특정페이지로 이동하는 정보만 응답으로 준다.
+                   java코드로 페이지 이동 -> sendRedirect("url");
+                */
+                response.sendRedirect("sessionMain.jsp");
+            }
+        }
+    }
+%>
+ 
+ 
+ 
+    <form method="post"action="sessionLoginPro.jsp" >
+        ID : <input type="text" name="id"><br>
+        PASS: <input type="password" name="pw"><br>
+        <input type="checkbox" name ="loginChk" value="true">id 기억하기<br>
+        <input type ="submit" value ="login">
+    </form>
+ 
+</form>
+</body>
+</html>
