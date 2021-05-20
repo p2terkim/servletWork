@@ -4,3 +4,37 @@
 1621234015763	Delete element
 1621322214138	Rename resource '0518_HW'
 1621338145540	Delete element
+1621399411177	Delete element
+1621486596429	Rename type 'SessionLogin'
+1621486602487	Rename type 'SessionLogout'
+1621486646501	Rename type 'SessionLogin_HW'
+1621486650075	Rename type 'SessionLogout_HW'
+1621486693626	Copy file
+1621486703558	Delete element
+1621486733544	Rename type 'SessionLogin'
+1621486739200	Rename type 'SessionLogout'
+1621494323464	Delete element
+1621494606325	Delete element
+1621494725700	Delete element
+1621495022986	Delete element
+1621495228087	Delete element
+1621495389367	Delete element
+1621495390876	Delete element
+1621495391962	Delete element
+1621495393019	Delete element
+1621495396694	Delete element
+1621495398429	Delete element
+1621495399763	Delete element
+1621495678217	Rename type 'IJdbcBoardDao'
+1621495698247	Rename type 'JdbcBoardDaoImpl'
+1621495703495	Rename type 'LprodDaoImpl'
+1621495724655	Rename type 'IJdbcBoardService'
+1621495737803	Rename type 'JdbcBoardServiceImpl'
+1621495753285	Rename type 'JdbcBoardController'
+1621495817165	Delete element
+1621495913167	Rename type 'ILprodDaoImpl'
+1621495922431	Rename type 'LprodDao'
+1621497966784	Delete element
+1621497969412	Delete element
+1621497973572	Delete element
+1621498117139	Delete element

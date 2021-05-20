@@ -1,0 +1,47 @@
+package kr.or.ddit.basic.session;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/SessionLogin.do")
+public class SessionLogin extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		//유저 정보 가져오기
+		String userId = request.getParameter("userid");
+		String userPass = request.getParameter("password");
+				
+		//session 객체 생성
+		HttpSession session = request.getSession();
+		
+		//세션 저장
+		session.setAttribute("userid", userId);
+		
+		//로그인 성공 여부 검사
+		if(userId!=null && userPass!=null) {
+			if("admin".equals(userId) && "1234".equals(userPass) ) {  // 로그인 성공
+				response.sendRedirect(request.getContextPath() + "/basic/03/cookieMain.jsp");
+			}else {  // 로그인 실패
+				response.sendRedirect(request.getContextPath() + "/basic/03/cookieLogin.jsp");
+			}
+		}
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

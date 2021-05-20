@@ -1,0 +1,7 @@
+package kr.or.ddit.basic.json;
+
+public class SampleVO {
+	private int id;
+	private String name;
+	
+}

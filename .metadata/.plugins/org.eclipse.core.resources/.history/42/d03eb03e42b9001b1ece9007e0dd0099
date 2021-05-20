@@ -1,0 +1,52 @@
+package main;
+
+import java.util.List;
+import java.util.Scanner;
+
+import kr.or.ddit.basic.json.LprodVO;
+import service.ILprodService;
+import service.LprodServiceImpl;
+
+public class LprodController {
+	private ILprodService service;
+	private Scanner scan;
+	
+	// 생성자
+	public LprodController() {
+		scan = new Scanner(System.in);
+		service = new LprodServiceImpl();
+	}
+
+	public static void main(String[] args) {
+		new LprodController().boardStart(); 
+	}
+	
+	public void boardStart(){
+		List<LprodVO> list = null;
+		list = service.getAllList();
+		
+		
+		if(list==null || list.size() == 0){
+			System.out.println("  출력할 게시글이 하나도 없습니다. ");
+		}else{
+			for(LprodVO lprodVo : list){
+				System.out.println(
+						"gu : " + lprodVo.getLprod_gu() + " / id : "+lprodVo.getLprod_id() + "/ nm : " + lprodVo.getLprod_nm()
+				);
+			}
+		}
+		
+	}
+	
+	
+
+}
+
+
+
+
+
+
+
+
+

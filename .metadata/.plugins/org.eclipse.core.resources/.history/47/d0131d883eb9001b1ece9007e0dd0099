@@ -1,0 +1,77 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import kr.or.ddit.basic.json.LprodVO;
+import util.DBUtil3;
+
+public class LprodDaoImpl implements ILprodDao{
+	
+	private Connection conn;
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private void disConnect(){
+		if(rs!=null) try{ rs.close(); }catch(SQLException e){}
+		if(stmt!=null) try{ stmt.close(); }catch(SQLException e){}
+		if(pstmt!=null) try{ pstmt.close(); }catch(SQLException e){}
+		if(conn!=null) try{ conn.close(); }catch(SQLException e){}
+	}
+	
+
+	@Override
+	public List<LprodVO> getAllBoardlist() {
+		List<LprodVO> boardList = new ArrayList<>();
+		try {
+			conn = DBUtil3.getConnection();
+			
+			String sql = "select * from lprod";
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			// 반복문 안에서는 가져온 데이터를 VO에 매핑하고 이 VO를 List에 추가한다.
+			while(rs.next()){
+				LprodVO lprodVo = new LprodVO();
+				boardVo.setBoard_no(rs.getInt("board_no"));
+				boardVo.setBoard_title(rs.getString("board_title"));
+				boardVo.setBoard_writer(rs.getString("board_writer"));
+				boardVo.setBoard_date(rs.getString("board_date"));
+				boardVo.setBoard_cnt(rs.getInt("board_cnt"));
+				boardVo.setBoard_content(rs.getString("board_content"));
+				
+				lprodVo.setLprod_id(rs.getInt("LPROD_ID"));
+				lprodVo.setLprod_nm(rs.getInt("LPROD_ID"));
+				lprodVo.setLprod_gu(rs.getInt("LPROD_ID"));
+				
+				boardList.add(lprodVo);
+			}
+			
+		} catch (SQLException e) {
+			boardList = null;
+			e.printStackTrace();
+		} finally {
+			disConnect();
+		}
+		
+		return boardList;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+

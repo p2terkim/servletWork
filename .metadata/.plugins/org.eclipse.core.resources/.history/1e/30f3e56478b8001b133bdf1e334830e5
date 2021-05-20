@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+//세션 객체 생성
+HttpSession sessionLog = request.getSession();
+
+//세션값 확인
+String sessionValue = (String)sessionLog.getAttribute("log");
+String id = (String)sessionLog.getAttribute("userId");
+
+	if(sessionValue == null){
+	
+	%>
+	<form action="<%=request.getContextPath()%>/SessionLogin.do" method="post">
+<table style="border:1px solid; margin:0 auto;">
+<tr>
+	<td>ID : </td>
+	<td><input type="text" name="userid" placeholder="ID 입력하세요"></td>
+</tr>
+<tr>
+	<td>Pass : </td>
+	<td><input type="password" name="pass" placeholder="PassWord 입력하세요"></td>
+</tr>
+
+<tr>
+	<td colspan="2" style="text-align:center;"><input type="submit" value="Login"></td>
+</tr>
+</table>
+</form>
+	
+	<%
+}else{
+%>
+<h2><%=sessionLog.getAttribute("userId") %>님 반갑습니다.</h2><br><br> 
+<a href='"+ request.getContextPath() +	"/SessionLogout.do'>로그아웃</a>
+<%
+}
+		
+%>
+
+
+
+</body>
+</html>

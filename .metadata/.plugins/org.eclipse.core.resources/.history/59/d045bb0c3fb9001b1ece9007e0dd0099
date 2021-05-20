@@ -1,0 +1,73 @@
+package main;
+
+import java.util.List;
+import java.util.Scanner;
+
+import kr.or.ddit.basic.json.LprodVO;
+import service.ILprodService;
+import service.LprodServiceImpl;
+import vo.JdbcBoardVO;
+
+public class LprodController {
+	private ILprodService service;
+	private Scanner scan;
+	
+	// 생성자
+	public LprodController() {
+		scan = new Scanner(System.in);
+		service = new LprodServiceImpl();
+	}
+
+	public static void main(String[] args) {
+		new LprodController().boardStart(); 
+	}
+	
+	public void boardStart(){
+		List<LprodVO> list = null;
+		boardList = service.getAllList();
+	}
+	
+	
+	
+	// 게시판 목록을 보여주고 메뉴를 나타내며 사용자가 입력한 메뉴 번호를 반환하는 메서드
+	// title ==> 검색할 제목이 저장될 변수
+	private int displayMenu(String title){
+		System.out.println();
+		System.out.println("----------------------------------------------------");
+		System.out.println("  No            제 목                     작성자                조회수");
+		System.out.println("----------------------------------------------------");
+		
+		List<JdbcBoardVO> boardList = null;
+		if(title==null || "".equals(title)){
+			boardList = service.getAllBoardlist();
+		}else{
+			boardList = service.getSearchBoardList(title);
+		}
+		
+		if(boardList==null || boardList.size() == 0){
+			System.out.println("  출력할 게시글이 하나도 없습니다. ");
+		}else{
+			for(JdbcBoardVO boardVo : boardList){
+				System.out.println(
+					boardVo.getBoard_no() + "   " + boardVo.getBoard_title() 
+					+ "   " + boardVo.getBoard_writer() + "   " + boardVo.getBoard_cnt() 
+				);
+			}
+		}
+		System.out.println("----------------------------------------------------");
+		System.out.println("메뉴 : 1. 새글작성     2. 게시글보기    3. 검색    0. 작업끝");
+		System.out.print("작업 선택 >> ");
+		int num = scan.nextInt();
+		return num;
+	}
+
+}
+
+
+
+
+
+
+
+
+

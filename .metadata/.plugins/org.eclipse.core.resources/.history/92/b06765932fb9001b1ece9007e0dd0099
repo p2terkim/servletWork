@@ -1,0 +1,37 @@
+package kr.or.ddit.basic.json;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+
+@WebServlet("/JSONTest.do")
+public class JSONTestServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		
+		//응답을 json으로 보내기
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json); charset=utf-8");
+		
+		String choice = request.getParameter("choice");
+		
+		Gson gson = new Gson();	//JSON 라이브러리(Gson)객체 생성
+		String jsonData = null;
+		
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

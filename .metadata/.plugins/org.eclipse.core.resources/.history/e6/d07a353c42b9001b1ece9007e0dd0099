@@ -1,0 +1,25 @@
+package service;
+
+import java.util.List;
+
+import dao.ILprodDao;
+import dao.LprodDaoImpl;
+import kr.or.ddit.basic.json.LprodVO;
+
+public class LprodServiceImpl implements ILprodService{
+	
+	private ILprodDao dao;
+	
+	// 생성자
+	public LprodServiceImpl() {
+		dao = new LprodDaoImpl();
+	}
+
+
+	@Override
+	public List<LprodVO> getAllList() {
+		return dao.getAllList();
+	}
+
+
+}

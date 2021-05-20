@@ -1,0 +1,56 @@
+package kr.or.ddit.board.service;
+
+import java.util.List;
+
+import kr.or.ddit.board.dao.IJdbcBoardDao;
+import kr.or.ddit.board.dao.JdbcBoardDaoImpl;
+import kr.or.ddit.vo.JdbcBoardVO;
+
+public class JdbcBoardServiceImpl implements IJdbcBoardService{
+	private IJdbcBoardDao dao;
+	
+	// 생성자
+	public JdbcBoardServiceImpl() {
+		dao = new JdbcBoardDaoImpl();
+	}
+
+	@Override
+	public int insertBoard(JdbcBoardVO boardVo) {
+		return dao.insertBoard(boardVo);
+	}
+
+	@Override
+	public int deleteBoard(int boardNo) {
+		return dao.deleteBoard(boardNo);
+	}
+
+	@Override
+	public int updateBoard(JdbcBoardVO boardVo) {
+		return dao.updateBoard(boardVo);
+	}
+
+	@Override
+	public List<JdbcBoardVO> getAllBoardlist() {
+		return dao.getAllBoardlist();
+	}
+
+	@Override
+	public JdbcBoardVO getBoard(int boardNo) {
+		int cnt = dao.setCountIncrement(boardNo);  // 조회수 증가하기
+		if(cnt==0){
+			return null;
+		}
+		return dao.getBoard(boardNo);
+	}
+
+	@Override
+	public List<JdbcBoardVO> getSearchBoardList(String title) {
+		return dao.getSearchBoardList(title);
+	}
+
+	@Override
+	public int setCountIncrement(int boardNo) {
+		return dao.setCountIncrement(boardNo);
+	}
+
+}

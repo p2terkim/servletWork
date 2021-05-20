@@ -1,0 +1,4 @@
+127.0.0.1 - - [21/May/2021:08:21:31 +0900] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [21/May/2021:08:21:33 +0900] "GET /servletTest/basic/04/sessionLogin.jsp HTTP/1.1" 200 771
+0:0:0:0:0:0:0:1 - - [21/May/2021:08:21:33 +0900] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [21/May/2021:08:21:39 +0900] "POST /servletTest/sessionLogin.do HTTP/1.1" 200 371

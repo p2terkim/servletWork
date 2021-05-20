@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	아래 버튼을 클릭하면 Oracle의 Lprod 테이블의 전체 목록을 가져와 출력하시오.
+	(자료르 ㄹ가져오는 것은 Servlet에서 처리해서 ajax로 가져온다.
+ -->
+
+</head>
+<body>
+
+<form>
+	<input type="button" id="lprodBtn" value="Lprod 자료 가져오기">
+</form>
+<h2>Lprod 자료 목록</h2>
+<div id="result"></div>
+</body>
+</html>
