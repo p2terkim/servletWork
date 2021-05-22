@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>File Upload 연습</title>
+</head>
+<body>
+<h1>File Upload 연습</h1>
+<h3>파일 선택 창에서 드래그나 'CTRL + Click' 또는 'Shift + Click'로 여러개의 파일 선택 가능</h3>
+
+<form method="post" action="">
+	ID : <input type="text" name="memid"><br>
+	파일업로드1 : <input type="file" name="fileup1" multiple><br>
+	파일업로드2 : <input type="file" name="fileup2" ><br>
+	<input type="submit" value="파일 업로드하기">
+	
+</form>
+</body>
+</html>

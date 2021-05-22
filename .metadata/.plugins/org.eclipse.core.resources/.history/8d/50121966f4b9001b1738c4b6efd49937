@@ -1,0 +1,22 @@
+package kr.or.ddit.basic.fileupload;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ 	-Servlet 3.0이상에서 파일 업로드를 처리하려면 서블릿에 @MultipartConfig 어노테이션을 설정해야한다.
+ 			(Servlet3.0 이하에서는 따로 라이브러리를 추가했어야했다.)
+*/
+@WebServlet("/file/FileUpload.do")
+public class FileUploadServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+   
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+}
